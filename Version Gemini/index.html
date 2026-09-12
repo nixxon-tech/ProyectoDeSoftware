@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo de Plantas</title>
+  <link rel="stylesheet" href="estilosIA.css">
+</head>
+<body>
+
+  <!-- Encabezado y Navegación principal -->
+  <header class="header-principal">
+    <div class="logo">
+      <h1>Vivero Verde</h1>
+    </div>
+    <nav class="nav-principal">
+      <ul>
+        <li><a href="#plantas">Plantas</a></li>
+        <li><a href="#mantenimiento">Quién Mantiene el Sitio</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="contenedor-principal">
+
+    <!-- Sección de Plantas (Interior / Exterior) -->
+    <section id="plantas" class="seccion-plantas">
+      <h2>Catálogo de Plantas</h2>
+      <p>Selecciona una categoría para ver las plantas asociadas y descargar su ficha técnica:</p>
+
+      <!-- Radios ocultos para controlar el cambio de categoría con puro CSS -->
+      <input type="radio" name="categoria" id="cat-interior" class="radio-categoria" checked>
+      <input type="radio" name="categoria" id="cat-exterior" class="radio-categoria">
+
+      <!-- Botones / Pestañas de selección -->
+      <div class="selector-categorias">
+        <label for="cat-interior" class="btn-categoria">Plantas de Interior</label>
+        <label for="cat-exterior" class="btn-categoria">Plantas de Exterior</label>
+      </div>
+
+      <!-- CATEGORÍA: INTERIOR -->
+      <div class="contenido-categoria categoria-interior">
+        <div class="encabezado-categoria">
+          <h3>Plantas de Interior</h3>
+          <a  class="btn-pdf">📄 Descargar Ficha (Interior)</a>
+        </div>
+
+        <div class="grid-plantas">
+          <!-- Planta 1 -->
+          <article class="tarjeta-planta">
+            <h4 class="titulo-planta">Monstera Deliciosa</h4>
+            <div class="contenedor-imagen">
+              <img src="https://images.unsplash.com/photo-1614594975525-e45190c55d0b?w=400&auto=format&fit=crop" alt="Monstera Deliciosa">
+            </div>
+            <a href="#info-monstera" class="enlace-info">+ Info</a>
+          </article>
+
+          <!-- Planta 2 -->
+          <article class="tarjeta-planta">
+            <h4 class="titulo-planta">Lengua de Suegra</h4>
+            <div class="contenedor-imagen">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhsp4bSANMZUZX5MYqPD3fRYcpr2GjoORsHDD1kO795THGmtKUDFINVNoL1iHuqgjIbzsdQAwlDzd0AeL5vaqssH5PzbMyqm3Y2VRHFw&s=10" alt="Lengua de Suegra">
+            </div>
+            <a href="#info-sansevieria" class="enlace-info">+ Info</a>
+          </article>
+
+          <!-- Planta 3 -->
+          <article class="tarjeta-planta">
+            <h4 class="titulo-planta">Pothos</h4>
+            <div class="contenedor-imagen">
+              <img src="https://images.unsplash.com/photo-1596547609652-9cf5d8d76921?w=400&auto=format&fit=crop" alt="Pothos">
+            </div>
+            <a href="#info-pothos" class="enlace-info">+ Info</a>
+          </article>
+        </div>
+      </div>
+
+      <!-- CATEGORÍA: EXTERIOR -->
+      <div class="contenido-categoria categoria-exterior">
+        <div class="encabezado-categoria">
+          <h3>Plantas de Exterior</h3>
+          <a  class="btn-pdf">📄 Descargar Ficha (Exterior)</a>
+        </div>
+
+        <div class="grid-plantas">
+          <!-- Planta 1 -->
+          <article class="tarjeta-planta">
+            <h4 class="titulo-planta">Retamas</h4>
+            <div class="contenedor-imagen">
+              <img src="https://media.istockphoto.com/id/1492832901/es/foto/retama-en-flor-en-primavera-cytisus-scoparius.jpg?s=612x612&w=0&k=20&c=PXLwPXqXNzu7DdbQLdFt2aFPnGyddLyopBieQYoUZdM=" alt="Retamas">
+            </div>
+            <a href="#info-retamas" class="enlace-info">+ Info</a>
+          </article>
+
+          <!-- Planta 2 -->
+          <article class="tarjeta-planta">
+            <h4 class="titulo-planta">Rododendros</h4>
+            <div class="contenedor-imagen">
+              <img src="https://images.unsplash.com/photo-1563241527-3004b7be0ffd?w=400&auto=format&fit=crop" alt="Rododendros">
+            </div>
+            <a href="#info-rododendros" class="enlace-info">+ Info</a>
+          </article>
+
+          <!-- Planta 3 -->
+          <article class="tarjeta-planta">
+            <h4 class="titulo-planta">Lavanda</h4>
+            <div class="contenedor-imagen">
+              <img src="https://images.unsplash.com/photo-1528183429752-a97d0bf99b5a?w=400&auto=format&fit=crop" alt="Lavanda">
+            </div>
+            <a href="#info-lavanda" class="enlace-info">+ Info</a>
+          </article>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- VENTANAS MODALES DE INFORMACIÓN (+ INFO) -->
+
+    <!-- Modal 1: Monstera -->
+    <div id="info-monstera" class="modal-info">
+      <div class="contenido-modal">
+        <a href="#plantas" class="btn-cerrar">&times;</a>
+        <h3>Monstera Deliciosa</h3>
+        <p><strong>Riego:</strong> Moderado. Dejar secar el sustrato entre riegos.</p>
+        <p><strong>Luz:</strong> Luz indirecta brillante.</p>
+        <p><strong>Características:</strong> Planta de hojas grandes y caladas, ideal para interiores espaciosos.</p>
+        <a href="pdfs/Monstera Deliciosa.pdf.pdf" download="Ficha_Monstera.html" class="btn-pdf-modal">📄 Descargar Ficha</a>
+      </div>
+    </div>
+
+    <!-- Modal 2: Lengua de Suegra -->
+    <div id="info-sansevieria" class="modal-info">
+      <div class="contenido-modal">
+        <a href="#plantas" class="btn-cerrar">&times;</a>
+        <h3>Lengua de Suegra (Sansevieria)</h3>
+        <p><strong>Riego:</strong> Escaso. Regar solo cuando la tierra esté completamente seca.</p>
+        <p><strong>Luz:</strong> Se adapta a cualquier nivel de luz, desde sombra hasta luz directa.</p>
+        <p><strong>Características:</strong> Muy resistente y purificadora del aire.</p>
+        <a href="pdfs/Lengua de Suegra.pdf.pdf" download="Ficha_Sansevieria.html" class="btn-pdf-modal">📄 Descargar Ficha</a>
+      </div>
+    </div>
+
+    <!-- Modal 3: Pothos -->
+    <div id="info-pothos" class="modal-info">
+      <div class="contenido-modal">
+        <a href="#plantas" class="btn-cerrar">&times;</a>
+        <h3>Pothos</h3>
+        <p><strong>Riego:</strong> Moderado.</p>
+        <p><strong>Luz:</strong> Luz media a brillante indirecta.</p>
+        <p><strong>Características:</strong> Planta colgante de crecimiento rápido y fácil mantenimiento.</p>
+        <a href="pdfs/Pothos.pdf.pdf" download="Ficha_Pothos.html" class="btn-pdf-modal">📄 Descargar Ficha</a>
+      </div>
+    </div>
+
+    <!-- Modal 4: Retamas -->
+    <div id="info-retamas" class="modal-info">
+      <div class="contenido-modal">
+        <a href="#plantas" class="btn-cerrar">&times;</a>
+        <h3>Retamas</h3>
+        <p><strong>Riego:</strong> Bajo. Tolerante a la sequía.</p>
+        <p><strong>Luz:</strong> Pleno sol.</p>
+        <p><strong>Características:</strong> Arbusto de exterior con abundantes flores amarillas en primavera.</p>
+        <a href="pdfs/Retamas.pdf.pdf" download="Ficha_Retamas.html" class="btn-pdf-modal">📄 Descargar Ficha</a>
+      </div>
+    </div>
+
+    <!-- Modal 5: Rododendros -->
+    <div id="info-rododendros" class="modal-info">
+      <div class="contenido-modal">
+        <a href="#plantas" class="btn-cerrar">&times;</a>
+        <h3>Rododendros</h3>
+        <p><strong>Riego:</strong> Frecuente pero sin encharcar.</p>
+        <p><strong>Luz:</strong> Sombra parcial o luz filtrada.</p>
+        <p><strong>Características:</strong> Destaca por sus flores vistosas en tonos rosados y fucsias.</p>
+        <a href="pdfs/Rododendros.pdf.pdf" download="Ficha_Rododendros.html" class="btn-pdf-modal">📄 Descargar Ficha</a>
+      </div>
+    </div>
+
+    <!-- Modal 6: Lavanda -->
+    <div id="info-lavanda" class="modal-info">
+      <div class="contenido-modal">
+        <a href="#plantas" class="btn-cerrar">&times;</a>
+        <h3>Lavanda</h3>
+        <p><strong>Riego:</strong> Escaso.</p>
+        <p><strong>Luz:</strong> Pleno sol directo.</p>
+        <p><strong>Características:</strong> Planta aromática con flores violetas de gran resistencia al exterior.</p>
+        <a href="pdfs/Lavanda.pfd.pdf" download="Ficha_Lavanda.html" class="btn-pdf-modal">📄 Descargar Ficha</a>
+      </div>
+    </div>
+
+    <hr class="separador">
+
+    <!-- Sección: Quién Mantiene el Sitio -->
+    <section id="mantenimiento" class="seccion-mantenimiento">
+      <h2>¿Quién Mantiene este Sitio?</h2>
+      <div class="tarjeta-autor">
+        <p><strong>Administrador:</strong> Nicolás Quiñones</p>
+        <p><strong>Correo técnico:</strong> <a href="mailto:nicoqo31@gmail.com">nicoqo31@gmail.com</a></p>
+        <p>Este sitio web es mantenido de forma independiente para brindar información estática sobre botánica y cuidado de plantas de interior y exterior con ayuda de Gemini.</p>
+      </div>
+    </section>
+
+    <hr class="separador">
+
+    <!-- Sección: Contacto (Formulario Simple) -->
+    <section id="contacto" class="seccion-contacto">
+      <h2>Información de Contacto</h2>
+      <form class="formulario-contacto" action="#" method="post">
+        <div class="campo-form">
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+        </div>
+
+        <div class="campo-form">
+          <label for="email">Correo Electrónico:</label>
+          <input type="email" id="email" name="email" required placeholder="tu@email.com">
+        </div>
+
+        <div class="campo-form">
+          <label for="mensaje">Mensaje:</label>
+          <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Escribe tu consulta..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-enviar">Enviar Mensaje</button>
+      </form>
+    </section>
+
+  </main>
+
+  <footer class="footer-principal">
+    <p>&copy; 2026 Vivero Verde - Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>

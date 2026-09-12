@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacto — Verdor</title>
+<meta name="description" content="Formulario de contacto del sitio Verdor.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilosIA.css">
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="barra-nav">
+    <a class="marca" href="index.html">Ver<span>dor</span></a>
+    <input type="checkbox" id="nav-toggle" class="nav-caja">
+    <label for="nav-toggle" class="nav-boton">Menú</label>
+    <ul class="nav-enlaces">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="plantas.html">Plantas</a></li>
+      <li><a href="quienes-somos.html">Quiénes somos</a></li>
+      <li><a href="contacto.html" aria-current="page">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="seccion">
+    <div class="envoltorio diseño-contacto">
+      <div>
+        <p class="eyebrow-planta">Escribinos</p>
+        <h1>Contacto</h1>
+        <p class="medida-texto">¿Una consulta sobre alguna planta, un dato para corregir o una especie que te gustaría ver en el sitio? Completá el formulario y te respondemos por correo.</p>
+
+        <div class="info-contacto">
+          <dl>
+            <dt>Nombre</dt><dd>Nicolás Quiñones</dd>
+            <dt>Correo</dt><dd>nicoqo31@gmail.com</dd>
+            <dt>Zona</dt><dd>La Plata, Buenos Aires, Argentina</dd>
+          </dl>
+        </div>
+      </div>
+
+      <form class="formulario-contacto" action="mailto:nicoqo31@gmail.com" method="post" enctype="text/plain">
+        <div class="campo">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" required>
+        </div>
+        <div class="campo">
+          <label for="correo">Correo electrónico</label>
+          <input type="email" id="correo" name="correo" required>
+        </div>
+        <div class="campo">
+          <label for="motivo">Motivo</label>
+          <select id="motivo" name="motivo">
+            <option value="consulta">Consulta sobre una planta</option>
+            <option value="correccion">Corregir un dato</option>
+            <option value="sugerencia">Sugerir una especie</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" required></textarea>
+        </div>
+        <button type="submit" class="boton boton-lleno enviar">Enviar mensaje</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="envoltorio">
+    <p>© 2026 Verdor. Sitio estático de referencia.</p>
+    <p><a href="quienes-somos.html">Quiénes somos</a> · <a href="contacto.html">Contacto</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,621 @@
+/* =========================================================
+   VERDOR — hoja de estilos global
+   Paleta y tipografía definidas como variables (tokens)
+   ========================================================= */
+
+:root{
+  /* color */
+  --tinta:        #16281F;   /* texto principal, casi negro-verde */
+  --papel:        #F1F3EC;   /* fondo general, blanco verdoso */
+  --papel-alt:    #E7EBDD;   /* paneles / franjas alternas */
+  --bosque:       #1F3B2F;   /* verde profundo — cabecera y footer */
+  --musgo:        #47614A;   /* verde medio — textos secundarios, bordes */
+  --linea:        #CFD6C2;   /* líneas finas / separadores */
+  --oro:          #B4801F;   /* acento — categoría Interior */
+  --oro-suave:    #F0DFB8;   /* relleno claro — categoría Interior */
+  --flor:         #A8265B;   /* acento — categoría Exterior */
+  --flor-suave:   #F2D3E1;   /* relleno claro — categoría Exterior */
+
+  /* tipografia */
+  --fuente-titular: "Fraunces", Georgia, "Times New Roman", serif;
+  --fuente-texto:   "Work Sans", Arial, Helvetica, sans-serif;
+
+  /* layout */
+  --ancho-maximo: 1120px;
+  --radio: 4px;
+}
+
+/* =========================================================
+   Base
+   ========================================================= */
+
+*{
+  box-sizing: border-box;
+}
+
+html{
+  -webkit-text-size-adjust: 100%;
+}
+
+body{
+  margin: 0;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: var(--fuente-texto);
+  font-size: 17px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3{
+  font-family: var(--fuente-titular);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0 0 0.5em 0;
+  color: var(--bosque);
+}
+
+h1{ font-size: clamp(2.1rem, 4vw, 3.1rem); }
+h2{ font-size: clamp(1.5rem, 2.6vw, 2rem); }
+h3{ font-size: 1.25rem; }
+
+p{ margin: 0 0 1em 0; max-width: 62ch; }
+
+a{
+  color: var(--musgo);
+  text-decoration: underline;
+  text-decoration-color: var(--linea);
+  text-underline-offset: 3px;
+}
+a:hover, a:focus{ color: var(--oro); }
+
+a:focus-visible, button:focus-visible, summary:focus-visible,
+input:focus-visible, textarea:focus-visible, label:focus-visible{
+  outline: 2px solid var(--oro);
+  outline-offset: 2px;
+}
+
+img{ max-width: 100%; display: block; }
+
+.envoltorio{
+  max-width: var(--ancho-maximo);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* =========================================================
+   Cabecera / navegación
+   ========================================================= */
+
+.cabecera{
+  background: var(--bosque);
+  border-bottom: 3px solid var(--oro);
+}
+
+.barra-nav{
+  max-width: var(--ancho-maximo);
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 72px;
+}
+
+.marca{
+  font-family: var(--fuente-titular);
+  color: #fff;
+  font-size: 1.4rem;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+}
+.marca span{ color: var(--oro-suave); }
+.marca:hover{ color: var(--oro-suave); }
+
+.nav-enlaces{
+  display: flex;
+  gap: 28px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-enlaces a{
+  color: #EFF2E6;
+  text-decoration: none;
+  font-size: 0.98rem;
+  padding: 6px 2px;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-enlaces a:hover,
+.nav-enlaces a:focus,
+.nav-enlaces a[aria-current="page"]{
+  border-bottom-color: var(--oro-suave);
+  color: #fff;
+}
+
+/* Menú móvil por checkbox (sin JavaScript) */
+.nav-boton{
+  display: none;
+}
+.nav-caja{
+  display: none;
+}
+
+@media (max-width: 760px){
+  .nav-boton{
+    display: block;
+    background: none;
+    border: 1px solid var(--oro-suave);
+    color: #fff;
+    font-family: var(--fuente-texto);
+    font-size: 0.95rem;
+    padding: 8px 14px;
+    border-radius: var(--radio);
+  }
+  .nav-caja:checked ~ .nav-enlaces{
+    display: flex;
+  }
+  .nav-enlaces{
+    display: none;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: var(--bosque);
+    flex-direction: column;
+    gap: 0;
+    padding: 8px 24px 18px;
+    border-bottom: 3px solid var(--oro);
+    z-index: 20;
+  }
+  .nav-enlaces a{
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    width: 100%;
+  }
+  .barra-nav{ position: relative; }
+}
+
+/* =========================================================
+   Héroe (portada)
+   ========================================================= */
+
+.heroe{
+  padding: 72px 0 64px;
+  border-bottom: 1px solid var(--linea);
+}
+
+.heroe-grilla{
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.heroe-ilustracion{
+  justify-self: end;
+}
+
+.eyebrow-planta{
+  font-family: var(--fuente-titular);
+  font-style: italic;
+  color: var(--musgo);
+  margin-bottom: 6px;
+}
+
+.heroe .cta{
+  margin-top: 8px;
+}
+
+@media (max-width: 820px){
+  .heroe-grilla{
+    grid-template-columns: 1fr;
+  }
+  .heroe-ilustracion{
+    justify-self: center;
+    order: -1;
+    width: 200px;
+  }
+}
+
+/* =========================================================
+   Botones / enlaces de acción
+   ========================================================= */
+
+.boton{
+  display: inline-block;
+  font-family: var(--fuente-texto);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  padding: 12px 22px;
+  border: 1.5px solid var(--bosque);
+  border-radius: var(--radio);
+  color: var(--bosque);
+  background: transparent;
+}
+.boton:hover, .boton:focus{
+  background: var(--bosque);
+  color: #fff;
+  border-color: var(--bosque);
+}
+
+.boton-lleno{
+  background: var(--bosque);
+  color: #fff;
+}
+.boton-lleno:hover, .boton-lleno:focus{
+  background: var(--musgo);
+  border-color: var(--musgo);
+  color: #fff;
+}
+
+.boton-pdf{
+  border-color: var(--oro);
+  color: var(--oro);
+}
+.boton-pdf:hover, .boton-pdf:focus{
+  background: var(--oro);
+  color: #fff;
+}
+
+.categoria-exterior .boton-pdf{
+  border-color: var(--flor);
+  color: var(--flor);
+}
+.categoria-exterior .boton-pdf:hover, .categoria-exterior .boton-pdf:focus{
+  background: var(--flor);
+  color: #fff;
+}
+
+/* =========================================================
+   Selector de categorías (plantas.html)
+   ========================================================= */
+
+.seccion{
+  padding: 56px 0;
+}
+
+.franja-alt{
+  background: var(--papel-alt);
+}
+
+.selector-categorias{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.tarjeta-categoria{
+  display: block;
+  text-decoration: none;
+  padding: 32px 28px;
+  border: 2px solid var(--musgo);
+  border-radius: var(--radio);
+  background: #fff;
+  color: var(--tinta);
+}
+
+.tarjeta-categoria:hover, .tarjeta-categoria:focus{
+  border-color: var(--oro);
+}
+
+.tarjeta-categoria.exterior:hover, .tarjeta-categoria.exterior:focus{
+  border-color: var(--flor);
+}
+
+.tarjeta-categoria h3{
+  margin-bottom: 6px;
+}
+
+.tarjeta-categoria .ir{
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--musgo);
+  text-decoration: none;
+}
+
+@media (max-width: 720px){
+  .selector-categorias{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   Encabezado de categoría (interior.html / exterior.html)
+   ========================================================= */
+
+.encabezado-categoria{
+  padding: 48px 0 20px;
+  border-bottom: 1px solid var(--linea);
+}
+
+.encabezado-categoria .rotulo{
+  font-family: var(--fuente-texto);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--musgo);
+}
+
+.encabezado-categoria.interior{ border-top: 6px solid var(--oro); }
+.encabezado-categoria.exterior{ border-top: 6px solid var(--flor); }
+
+.encabezado-categoria .acciones{
+  margin-top: 20px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.encabezado-categoria .nota-pdf{
+  font-size: 0.88rem;
+  color: var(--musgo);
+  margin: 0;
+}
+
+/* =========================================================
+   Grilla y tarjetas de planta
+   ========================================================= */
+
+.grilla-plantas{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  padding: 40px 0 64px;
+}
+
+@media (max-width: 980px){
+  .grilla-plantas{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px){
+  .grilla-plantas{ grid-template-columns: 1fr; }
+}
+
+.tarjeta-planta{
+  /* "borde" — el marco visible de la tarjeta */
+  border: 2px solid var(--musgo);
+  border-radius: var(--radio);
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.categoria-interior .tarjeta-planta{ border-color: var(--oro); }
+.categoria-exterior .tarjeta-planta{ border-color: var(--flor); }
+
+.tarjeta-planta .titulo-planta{
+  font-family: var(--fuente-titular);
+  font-size: 1.05rem;
+  padding: 14px 16px 8px;
+  color: var(--bosque);
+}
+
+.tarjeta-planta .relleno{
+  /* "relleno" — el área de imagen/ilustración de la tarjeta */
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.tarjeta-planta .relleno svg{
+  width: 100%;
+  height: 100%;
+}
+
+.tarjeta-planta .relleno img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.tarjeta-planta figcaption{
+  font-size: 0.72rem;
+  color: var(--musgo);
+  padding: 4px 16px 0;
+}
+
+.tarjeta-planta details{
+  border-top: 1px solid var(--linea);
+  margin-top: auto;
+  padding: 10px 16px 14px;
+}
+
+.tarjeta-planta summary{
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--musgo);
+  list-style: none;
+}
+.tarjeta-planta summary::-webkit-details-marker{ display: none; }
+.tarjeta-planta summary::before{
+  content: "+ ";
+  font-weight: 700;
+}
+.tarjeta-planta details[open] summary::before{
+  content: "− ";
+}
+.categoria-interior .tarjeta-planta summary{ color: var(--oro); }
+.categoria-exterior .tarjeta-planta summary{ color: var(--flor); }
+
+.tarjeta-planta .detalle-texto{
+  margin-top: 8px;
+  font-size: 0.92rem;
+  color: var(--tinta);
+}
+.tarjeta-planta .detalle-texto p{ margin: 0 0 8px 0; }
+.tarjeta-planta .detalle-texto dl{
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2px 10px;
+  font-size: 0.88rem;
+}
+.tarjeta-planta .detalle-texto dt{ color: var(--musgo); font-weight: 600; }
+.tarjeta-planta .detalle-texto dd{ margin: 0; }
+
+.tarjeta-planta .descarga-individual{
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.categoria-interior .tarjeta-planta .descarga-individual{ color: var(--oro); }
+.categoria-exterior .tarjeta-planta .descarga-individual{ color: var(--flor); }
+
+/* =========================================================
+   Quiénes somos
+   ========================================================= */
+
+.tarjeta-persona{
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  padding: 28px;
+  background: #fff;
+  border: 1px solid var(--linea);
+  border-radius: var(--radio);
+  margin-top: 28px;
+}
+
+.tarjeta-persona .avatar{
+  flex: none;
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: var(--oro-suave);
+  border: 2px solid var(--oro);
+}
+
+.lista-valores{
+  padding: 0;
+  margin: 24px 0;
+  list-style: none;
+  display: grid;
+  gap: 14px;
+}
+.lista-valores li{
+  padding-left: 22px;
+  position: relative;
+}
+.lista-valores li::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 9px;
+  height: 9px;
+  background: var(--musgo);
+  border-radius: 50%;
+}
+
+/* =========================================================
+   Formulario de contacto
+   ========================================================= */
+
+.diseño-contacto{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+@media (max-width: 820px){
+  .diseño-contacto{ grid-template-columns: 1fr; }
+}
+
+.formulario-contacto{
+  display: grid;
+  gap: 18px;
+  background: #fff;
+  border: 1px solid var(--linea);
+  border-radius: var(--radio);
+  padding: 28px;
+}
+
+.campo{
+  display: grid;
+  gap: 6px;
+}
+
+.campo label{
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--bosque);
+}
+
+.campo input,
+.campo select,
+.campo textarea{
+  font-family: var(--fuente-texto);
+  font-size: 1rem;
+  padding: 10px 12px;
+  border: 1.5px solid var(--linea);
+  border-radius: var(--radio);
+  background: var(--papel);
+  color: var(--tinta);
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus{
+  border-color: var(--oro);
+  outline: none;
+}
+
+.campo textarea{ resize: vertical; min-height: 120px; }
+
+.formulario-contacto .enviar{
+  justify-self: start;
+  border: none;
+  cursor: pointer;
+}
+
+.info-contacto dl{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px 16px;
+  margin: 20px 0 0;
+}
+.info-contacto dt{ color: var(--musgo); font-weight: 600; }
+.info-contacto dd{ margin: 0; }
+
+/* =========================================================
+   Pie de página
+   ========================================================= */
+
+.pie{
+  background: var(--bosque);
+  color: #D9DECB;
+  padding: 32px 0;
+  margin-top: 40px;
+}
+
+.pie .envoltorio{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 0.88rem;
+}
+
+.pie a{
+  color: #EFF2E6;
+}
+
+/* =========================================================
+   Utilidades
+   ========================================================= */
+
+.centrado{ text-align: center; }
+.medida-texto{ max-width: 60ch; }

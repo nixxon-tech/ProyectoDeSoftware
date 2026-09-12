@@ -1,0 +1,356 @@
+/* ==========================================================================
+   Reset Básico y Estilos Generales
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f4f7f6;
+}
+
+.contenedor-principal {
+  max-width: 1100px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+.separador {
+  border: 0;
+  height: 1px;
+  background: #ccc;
+  margin: 40px 0;
+}
+
+/* ==========================================================================
+   Header y Navegación Responsiva
+   ========================================================================== */
+.header-principal {
+  background-color: #1b4332;
+  color: #ffffff;
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.nav-principal ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nav-principal a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px 10px;
+  transition: background-color 0.3s;
+  border-radius: 4px;
+}
+
+.nav-principal a:hover {
+  background-color: #2d6a4f;
+}
+
+/* ==========================================================================
+   Lógica Estática de Selección de Categoría (Radio Hack)
+   ========================================================================== */
+/* Ocultar los radio buttons reales */
+.radio-categoria {
+  display: none;
+}
+
+.selector-categorias {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+  justify-content: center;
+}
+
+.btn-categoria {
+  padding: 10px 20px;
+  background-color: #e0e0e0;
+  color: #333;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+/* Ocultar ambos contenidos por defecto */
+.contenido-categoria {
+  display: none;
+}
+
+/* Mostrar la categoría seleccionada según el radio checked */
+#cat-interior:checked ~ .selector-categorias label[for="cat-interior"],
+#cat-exterior:checked ~ .selector-categorias label[for="cat-exterior"] {
+  background-color: #2d6a4f;
+  color: #ffffff;
+  border-color: #1b4332;
+}
+
+#cat-interior:checked ~ .categoria-interior {
+  display: block;
+}
+
+#cat-exterior:checked ~ .categoria-exterior {
+  display: block;
+}
+
+/* ==========================================================================
+   Sección Categoría y Descarga PDF
+   ========================================================================== */
+.encabezado-categoria {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.btn-pdf {
+  display: inline-block;
+  padding: 8px 15px;
+  background-color: #006699;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.btn-pdf:hover {
+  background-color: #004080;
+}
+
+/* ==========================================================================
+   Grid de Tarjetas de Plantas (Basado en la Imagen de Referencia)
+   ========================================================================== */
+.grid-plantas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+  justify-items: center;
+}
+
+/* Recreación exacta del estilo según la imagen proporcionada (borde y relleno) */
+.tarjeta-planta {
+  background-color: #ffffff;
+  border: 2px solid #1a365d; /* borde azul/oscuro de la imagen */
+  width: 100%;
+  max-width: 280px;
+  padding: 15px;           /* relleno interno */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.titulo-planta {
+  color: #1a365d;
+  font-size: 1.1rem;
+  font-weight: normal;
+}
+
+.contenedor-imagen img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.enlace-info {
+  color: #1a365d;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: bold;
+  align-self: flex-start;
+}
+
+.enlace-info:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   Secciones de Información y Formulario
+   ========================================================================== */
+.tarjeta-autor {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  border-left: 5px solid #2d6a4f;
+  margin-top: 15px;
+}
+
+.formulario-contacto {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 600px;
+  margin: 15px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.campo-form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.campo-form input,
+.campo-form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.btn-enviar {
+  padding: 10px 15px;
+  background-color: #2d6a4f;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.btn-enviar:hover {
+  background-color: #1b4332;
+}
+
+.footer-principal {
+  text-align: center;
+  padding: 20px;
+  background-color: #1b4332;
+  color: white;
+  margin-top: 40px;
+}
+
+/* ==========================================================================
+   Media Queries (Responsividad)
+   ========================================================================== */
+@media (min-width: 600px) {
+  .header-principal {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* ==========================================================================
+   Modales de Información (+ Info) usando :target
+   ========================================================================== */
+.modal-info {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-info:target {
+  display: flex;
+}
+
+.contenido-modal {
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 8px;
+  max-width: 450px;
+  width: 90%;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contenido-modal h3 {
+  color: #1a365d;
+  margin-bottom: 5px;
+}
+
+.btn-cerrar {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.8rem;
+  color: #666;
+  text-decoration: none;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.btn-cerrar:hover {
+  color: #000;
+}
+
+.btn-pdf-modal {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 12px;
+  background-color: #2d6a4f;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.btn-pdf-modal:hover {
+  background-color: #1b4332;
+}
+/* ==========================================================================
+   Estilos para las Fichas Técnicas (PDF / Vista Imprimible)
+   ========================================================================== */
+.body-ficha {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 40px;
+  color: #333;
+  line-height: 1.6;
+  background-color: #ffffff;
+}
+
+.ficha {
+  border: 2px solid #1b4332;
+  padding: 25px;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.ficha h1 {
+  color: #1b4332;
+  border-bottom: 2px solid #2d6a4f;
+  padding-bottom: 10px;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+.ficha .campo {
+  margin-bottom: 12px;
+}
+
+.ficha .label {
+  font-weight: bold;
+  color: #1a365d;
+}
