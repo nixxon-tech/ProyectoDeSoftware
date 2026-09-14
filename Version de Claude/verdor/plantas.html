@@ -29,22 +29,224 @@
 <main>
   <section class="seccion">
     <div class="envoltorio">
-      <p class="eyebrow-planta">Paso 1</p>
+      <p class="eyebrow-planta">Catálogo</p>
       <h1>Elegí una categoría</h1>
-      <p class="medida-texto">Interior y exterior se muestran por separado, cada una con sus propias plantas y su propio PDF descargable. Elegí la que te interese para ver el detalle.</p>
+      <p class="medida-texto">Interior y exterior se muestran por separado, cada una con sus propias plantas y su propio PDF descargable. Solo puede haber una categoría activa a la vez.</p>
 
+      <!-- Radios ocultos: controlan qué categoría se muestra, con puro CSS -->
+      <input type="radio" name="categoria" id="cat-interior" class="radio-categoria" checked>
+      <input type="radio" name="categoria" id="cat-exterior" class="radio-categoria">
+
+      <!-- Pestañas de selección -->
       <div class="selector-categorias">
-        <a class="tarjeta-categoria interior" href="interior.html">
-          <h3>Plantas de interior</h3>
-          <p>Especies pensadas para vivir adentro: poca luz directa, riego espaciado y buena adaptación a ambientes cerrados.</p>
-          <span class="ir">Ver plantas de interior →</span>
-        </a>
-        <a class="tarjeta-categoria exterior" href="exterior.html">
-          <h3>Plantas de exterior</h3>
-          <p>Especies de jardín y balcón abierto: más sol directo, más viento y riego según estación.</p>
-          <span class="ir">Ver plantas de exterior →</span>
-        </a>
+        <label for="cat-interior" class="btn-categoria-tab">Plantas de interior</label>
+        <label for="cat-exterior" class="btn-categoria-tab">Plantas de exterior</label>
       </div>
+
+      <!-- ===================== CATEGORÍA: INTERIOR ===================== -->
+      <div class="contenido-categoria categoria-interior">
+
+        <div class="encabezado-categoria interior">
+          <p class="rotulo">Categoría seleccionada · Interior</p>
+          <h2>Plantas de interior</h2>
+          <p class="medida-texto">Cuatro especies fáciles de mantener adentro de casa. Abrí «+ Info» en cada tarjeta para ver luz, riego y cuidados, o descargá la ficha completa en PDF.</p>
+          <div class="acciones">
+            <a class="boton boton-pdf" href="pdfs/interior-plantas.pdf" download>Descargar PDF de Interior</a>
+          </div>
+          <p class="nota-pdf">El PDF incluye las mismas 4 fichas de esta categoría, listas para imprimir o llevar al vivero.</p>
+        </div>
+
+        <div class="grilla-plantas">
+
+          <!-- Potos -->
+          <article class="tarjeta-planta">
+            <h3 class="titulo-planta">Potos</h3>
+            <figure class="relleno" style="background:var(--oro-suave)">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Epipremnum_aureum.jpg?width=600" alt="Potos, Epipremnum aureum">
+            </figure>
+            <figcaption>Foto: Wikimedia Commons (dominio público)</figcaption>
+            <details>
+              <summary>Info</summary>
+              <div class="detalle-texto">
+                <p>Epipremnum aureum. Trepadora de hojas en forma de corazón, muy tolerante y de crecimiento rápido.</p>
+                <dl>
+                  <dt>Luz</dt><dd>Indirecta, media a baja</dd>
+                  <dt>Riego</dt><dd>Cada 7 a 10 días, dejar secar el sustrato</dd>
+                  <dt>Cuidado</dt><dd>Podar guías largas; hojas tóxicas si se ingieren</dd>
+                </dl>
+                <a class="descarga-individual" href="pdfs/potos.pdf" download>Descargar ficha en PDF →</a>
+              </div>
+            </details>
+          </article>
+
+          <!-- Sansevieria -->
+          <article class="tarjeta-planta">
+            <h3 class="titulo-planta">Lengua de suegra</h3>
+            <figure class="relleno" style="background:var(--oro-suave)">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Sansevieria_trifasciata_Plant_3264px.jpg?width=600" alt="Lengua de suegra, Sansevieria trifasciata">
+            </figure>
+            <figcaption>Foto: Derek Ramsey / Wikimedia Commons (CC BY-SA)</figcaption>
+            <details>
+              <summary>Info</summary>
+              <div class="detalle-texto">
+                <p>Sansevieria trifasciata. Hojas rígidas y erguidas, entre las más resistentes para interior.</p>
+                <dl>
+                  <dt>Luz</dt><dd>Tolera poca luz; ideal en semisombra</dd>
+                  <dt>Riego</dt><dd>Cada 15 a 20 días, muy resistente a la sequía</dd>
+                  <dt>Cuidado</dt><dd>Evitar exceso de agua; no necesita fertilizar seguido</dd>
+                </dl>
+                <a class="descarga-individual" href="pdfs/sansevieria.pdf" download>Descargar ficha en PDF →</a>
+              </div>
+            </details>
+          </article>
+
+          <!-- Helecho -->
+          <article class="tarjeta-planta">
+            <h3 class="titulo-planta">Helecho</h3>
+            <figure class="relleno" style="background:var(--oro-suave)">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Boston_Fern_(Nephrolepis_exaltata).jpg?width=600" alt="Helecho, Nephrolepis exaltata">
+            </figure>
+            <figcaption>Foto: Wikimedia Commons (CC BY-SA)</figcaption>
+            <details>
+              <summary>Info</summary>
+              <div class="detalle-texto">
+                <p>Nephrolepis exaltata. Fronda abundante y ligera, agradece humedad ambiente.</p>
+                <dl>
+                  <dt>Luz</dt><dd>Indirecta, ambiente húmedo</dd>
+                  <dt>Riego</dt><dd>2 a 3 veces por semana, sustrato siempre húmedo</dd>
+                  <dt>Cuidado</dt><dd>Pulverizar hojas; evitar corrientes de aire frío</dd>
+                </dl>
+                <a class="descarga-individual" href="pdfs/helecho.pdf" download>Descargar ficha en PDF →</a>
+              </div>
+            </details>
+          </article>
+
+          <!-- Suculenta -->
+          <article class="tarjeta-planta">
+            <h3 class="titulo-planta">Suculenta Echeveria</h3>
+            <figure class="relleno" style="background:var(--oro-suave)">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Echeveria_elegans_-_1.jpg?width=600" alt="Suculenta Echeveria elegans">
+            </figure>
+            <figcaption>Foto: EriaWei / Wikimedia Commons (CC BY-SA)</figcaption>
+            <details>
+              <summary>Info</summary>
+              <div class="detalle-texto">
+                <p>Echeveria sp. Roseta compacta de hojas carnosas, ideal para lugares muy luminosos.</p>
+                <dl>
+                  <dt>Luz</dt><dd>Buena luz, cerca de una ventana</dd>
+                  <dt>Riego</dt><dd>Cada 12 a 15 días, dejar secar bien</dd>
+                  <dt>Cuidado</dt><dd>Sustrato con buen drenaje; evitar encharcar</dd>
+                </dl>
+                <a class="descarga-individual" href="pdfs/echeveria.pdf" download>Descargar ficha en PDF →</a>
+              </div>
+            </details>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- ===================== CATEGORÍA: EXTERIOR ===================== -->
+      <div class="contenido-categoria categoria-exterior">
+
+        <div class="encabezado-categoria exterior">
+          <p class="rotulo">Categoría seleccionada · Exterior</p>
+          <h2>Plantas de exterior</h2>
+          <p class="medida-texto">Cuatro especies de jardín o balcón abierto. Abrí «+ Info» en cada tarjeta para ver luz, riego y cuidados, o descargá la ficha completa en PDF.</p>
+          <div class="acciones">
+            <a class="boton boton-pdf" href="pdfs/exterior-plantas.pdf" download>Descargar PDF de Exterior</a>
+          </div>
+          <p class="nota-pdf">El PDF incluye las mismas 4 fichas de esta categoría, listas para imprimir o llevar al vivero.</p>
+        </div>
+
+        <div class="grilla-plantas">
+
+          <!-- Retama -->
+          <article class="tarjeta-planta">
+            <h3 class="titulo-planta">Retama</h3>
+            <figure class="relleno" style="background:var(--flor-suave)">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Retama_de_bolas_-_Retama_sphaerocarpa_(14474777264).jpg?width=600" alt="Retama en flor">
+            </figure>
+            <figcaption>Foto: Jacinta Lluch Valero / Wikimedia Commons (CC BY-SA)</figcaption>
+            <details>
+              <summary>Info</summary>
+              <div class="detalle-texto">
+                <p>Retama sp. Arbusto de ramas finas cubierto de pequeñas flores amarillas en primavera.</p>
+                <dl>
+                  <dt>Luz</dt><dd>Sol pleno</dd>
+                  <dt>Riego</dt><dd>Bajo; resiste la sequía una vez establecida</dd>
+                  <dt>Cuidado</dt><dd>Podar después de la floración; suelo bien drenado</dd>
+                </dl>
+                <a class="descarga-individual" href="pdfs/retama.pdf" download>Descargar ficha en PDF →</a>
+              </div>
+            </details>
+          </article>
+
+          <!-- Rododendro -->
+          <article class="tarjeta-planta">
+            <h3 class="titulo-planta">Rododendro</h3>
+            <figure class="relleno" style="background:var(--flor-suave)">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Rhododendron_cultivar_pink.jpg?width=600" alt="Rododendro en flor">
+            </figure>
+            <figcaption>Foto: Jebulon / Wikimedia Commons (CC BY-SA)</figcaption>
+            <details>
+              <summary>Info</summary>
+              <div class="detalle-texto">
+                <p>Rhododendron sp. Arbusto de flores vistosas en racimos, agradece sombra parcial.</p>
+                <dl>
+                  <dt>Luz</dt><dd>Sol filtrado o semisombra</dd>
+                  <dt>Riego</dt><dd>Regular; sustrato ácido y siempre húmedo</dd>
+                  <dt>Cuidado</dt><dd>Mantillo para conservar humedad; evitar suelos calcáreos</dd>
+                </dl>
+                <a class="descarga-individual" href="pdfs/rododendro.pdf" download>Descargar ficha en PDF →</a>
+              </div>
+            </details>
+          </article>
+
+          <!-- Lavanda -->
+          <article class="tarjeta-planta">
+            <h3 class="titulo-planta">Lavanda</h3>
+            <figure class="relleno" style="background:var(--flor-suave)">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Lavandula_angustifolia_002.JPG?width=600" alt="Lavanda en flor">
+            </figure>
+            <figcaption>Foto: Wikimedia Commons (CC BY-SA)</figcaption>
+            <details>
+              <summary>Info</summary>
+              <div class="detalle-texto">
+                <p>Lavandula angustifolia. Espigas aromáticas violáceas, clásica de jardines soleados.</p>
+                <dl>
+                  <dt>Luz</dt><dd>Sol pleno</dd>
+                  <dt>Riego</dt><dd>Escaso; resiste bien la sequía</dd>
+                  <dt>Cuidado</dt><dd>Podar en primavera; suelo con buen drenaje</dd>
+                </dl>
+                <a class="descarga-individual" href="pdfs/lavanda.pdf" download>Descargar ficha en PDF →</a>
+              </div>
+            </details>
+          </article>
+
+          <!-- Hortensia -->
+          <article class="tarjeta-planta">
+            <h3 class="titulo-planta">Hortensia</h3>
+            <figure class="relleno" style="background:var(--flor-suave)">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hydrangea_macrophylla_pink_and_blue.jpg?width=600" alt="Hortensia en flor">
+            </figure>
+            <figcaption>Foto: Wikimedia Commons (CC BY-SA)</figcaption>
+            <details>
+              <summary>Info</summary>
+              <div class="detalle-texto">
+                <p>Hydrangea macrophylla. Flores agrupadas en cabezuelas redondeadas, muy sensible a la falta de agua.</p>
+                <dl>
+                  <dt>Luz</dt><dd>Semisombra, protegida del sol del mediodía</dd>
+                  <dt>Riego</dt><dd>Frecuente; no dejar secar el sustrato</dd>
+                  <dt>Cuidado</dt><dd>El color de la flor varía según el pH del suelo</dd>
+                </dl>
+                <a class="descarga-individual" href="pdfs/hortensia.pdf" download>Descargar ficha en PDF →</a>
+              </div>
+            </details>
+          </article>
+
+        </div>
+      </div>
+
     </div>
   </section>
 </main>
